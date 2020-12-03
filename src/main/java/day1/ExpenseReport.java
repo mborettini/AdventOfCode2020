@@ -1,29 +1,13 @@
 package day1;
 
+import main.FileUpload;
 import org.jetbrains.annotations.NotNull;
 
-import java.io.IOException;
-import java.io.UncheckedIOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.List;
 
-public class FixingExpenseReport {
-
-    private static List<Integer> uploadExpenseReport() {
-        final Path expenseReport = Paths.get("C:", "Users", "magda", "IdeaProjects", "AdventOfCode", "src", "main", "resources", "expense_report.txt");
-        List<Integer> expenses = new ArrayList<>();
-        try (Scanner in = new Scanner(Files.newInputStream(expenseReport))) {
-            while (in.hasNext()) {
-                Integer a = in.nextInt();
-                expenses.add(a);
-            }
-        } catch (IOException e) {
-            throw new UncheckedIOException(e);
-        }
-        return expenses;
-    }
+public class ExpenseReport<T> extends FileUpload {
 
     @NotNull
     private static int multiplicationOfTwo(List<Integer> expenses) {
@@ -60,10 +44,9 @@ public class FixingExpenseReport {
     }
 
     public static void main(String[] args) {
-        List<Integer> expenses = uploadExpenseReport();
-        System.out.println(multiplicationOfTwo(expenses));
-        System.out.println(multiplicationOfThree(expenses));
-
+        final Path expenseReport = Paths.get("C:", "Users", "magda", "IdeaProjects", "AdventOfCode", "src", "main", "resources", "expense_report.txt");
+        System.out.println(multiplicationOfTwo(FileUpload.uploadIntegersFile(expenseReport)));
+        System.out.println(multiplicationOfThree(FileUpload.uploadIntegersFile(expenseReport)));
     }
 
 }
