@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class FileUpload {
 
-    public static List<String> uploadStringsFile(Path path) {
+    public static List<String> uploadLineByLine(Path path) {
         List<String> stringsFileContent = new ArrayList<>();
         try (Scanner in = new Scanner(Files.newInputStream(path))) {
             while (in.hasNext()) {
@@ -23,7 +23,7 @@ public class FileUpload {
         return stringsFileContent;
     }
 
-    public static List<Integer> uploadIntegersFile(Path path) {
+    public static List<Integer> uploadAsConsecutiveNumbers(Path path) {
         List<Integer> integersFileContent = new ArrayList<>();
         try (Scanner in = new Scanner(Files.newInputStream(path))) {
             while (in.hasNext()) {
@@ -34,6 +34,27 @@ public class FileUpload {
             throw new UncheckedIOException(e);
         }
         return integersFileContent;
+    }
+
+    public static List<String> uploadWithEmptyLineAsSeparator(Path path) {
+        List<String> stringsFileContent = new ArrayList<>();
+        String elem = "";
+        String line = "";
+        try (Scanner in = new Scanner(Files.newInputStream(path))) {
+            while (in.hasNext()) {
+                elem = in.nextLine() + " ";
+                if (!elem.isBlank()) {
+                    line = line + elem;
+                } else {
+                    stringsFileContent.add(line);
+                    elem = "";
+                    line = "";
+                }
+            }
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
+        return stringsFileContent;
     }
 
 

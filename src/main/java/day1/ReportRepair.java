@@ -45,8 +45,8 @@ public class ReportRepair<T> extends FileUpload {
 
     public static void main(String[] args) {
         final Path expenseReport = Paths.get("C:", "Users", "magda", "IdeaProjects", "AdventOfCode", "src", "main", "resources", "expense_report.txt");
-        System.out.println(multiplicationOfTwo(FileUpload.uploadIntegersFile(expenseReport)));
-        System.out.println(multiplicationOfThree(FileUpload.uploadIntegersFile(expenseReport)));
+        System.out.println(multiplicationOfTwo(FileUpload.uploadAsConsecutiveNumbers(expenseReport)));
+        System.out.println(multiplicationOfThree(FileUpload.uploadAsConsecutiveNumbers(expenseReport)));
     }
 
 }

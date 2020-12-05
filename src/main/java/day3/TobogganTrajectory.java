@@ -49,7 +49,7 @@ public class TobogganTrajectory extends FileUpload {
     public static void main(String[] args) {
         final Path mapFile = Paths.get("C:", "Users", "magda", "IdeaProjects", "AdventOfCode", "src", "main", "resources", "map.txt");
 
-        List<String> map = extendMapToRight(FileUpload.uploadStringsFile(mapFile));
+        List<String> map = extendMapToRight(FileUpload.uploadLineByLine(mapFile));
 
         List<String> firstTypeOfSlope = getCharactersFromTrajectory(map, 1, 1);
         List<String> secondTypeOfSlope = getCharactersFromTrajectory(map, 3, 1);

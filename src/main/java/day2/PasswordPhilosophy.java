@@ -73,8 +73,8 @@ public class PasswordPhilosophy extends FileUpload {
 
     public static void main(String[] args) {
         final Path passwordsFile = Paths.get("C:", "Users", "magda", "IdeaProjects", "AdventOfCode", "src", "main", "resources", "passwords.txt");
-        System.out.println(firstPasswordPolicyValidation(FileUpload.uploadStringsFile(passwordsFile)));
-        System.out.println(secondPasswordsPolicyValidation(FileUpload.uploadStringsFile(passwordsFile)));
+        System.out.println(firstPasswordPolicyValidation(FileUpload.uploadLineByLine(passwordsFile)));
+        System.out.println(secondPasswordsPolicyValidation(FileUpload.uploadLineByLine(passwordsFile)));
     }
 
 }
