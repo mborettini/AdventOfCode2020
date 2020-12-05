@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CorruptedPasswords extends FileUpload {
+public class PasswordPhilosophy extends FileUpload {
 
     private static int firstPasswordPolicyValidation(List<String> passwords) {
         int start;

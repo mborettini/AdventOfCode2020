@@ -7,7 +7,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class ExpenseReport<T> extends FileUpload {
+public class ReportRepair<T> extends FileUpload {
 
     @NotNull
     private static int multiplicationOfTwo(List<Integer> expenses) {
