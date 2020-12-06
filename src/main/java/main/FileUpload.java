@@ -4,9 +4,7 @@ import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class FileUpload {
 
@@ -36,7 +34,7 @@ public class FileUpload {
         return integersFileContent;
     }
 
-    public static List<String> uploadWithEmptyLineAsSeparator(Path path) {
+    public static List<String> uploadWithEmptyLineAsSeparatorWithSpaces(Path path) {
         List<String> stringsFileContent = new ArrayList<>();
         String elem = "";
         String line = "";
@@ -57,5 +55,25 @@ public class FileUpload {
         return stringsFileContent;
     }
 
+    public static List<String> uploadWithEmptyLineAsSeparator(Path path) {
+        List<String> stringsFileContent = new ArrayList<>();
+        String elem = "";
+        String line = "";
+        try (Scanner in = new Scanner(Files.newInputStream(path))) {
+            while (in.hasNext()) {
+                elem = in.nextLine();
+                if (!elem.isBlank()) {
+                    line = line + elem;
+                } else {
+                    stringsFileContent.add(line);
+                    elem = "";
+                    line = "";
+                }
+            }
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
+        return stringsFileContent;
+    }
 
 }

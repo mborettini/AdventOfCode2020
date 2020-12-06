@@ -71,7 +71,7 @@ public class PassportProcessing {
 
     public static void main(String[] args) {
         final Path passportsFile = Paths.get("C:", "Users", "magda", "IdeaProjects", "AdventOfCode", "src", "main", "resources", "passports.txt");
-        List<String> passports = FileUpload.uploadWithEmptyLineAsSeparator(passportsFile);
+        List<String> passports = FileUpload.uploadWithEmptyLineAsSeparatorWithSpaces(passportsFile);
 
         System.out.println(PassportProcessing.countValidPassports(passports));
     }
